@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clear Field — Iowa Water Watch</title>
+
+  <!-- Google Fonts: Cormorant Garamond for headings, DM Sans for body, Courier Prime for monospace accents -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet.js for the interactive map — open-source map library, no API key needed -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- My stylsheet and script -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ════════════════════════════════
+       HEADER
+  ════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark">CF</span>
+        <span class="logo-text">Clear Field</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#stats">The Problem</a>
+        <a href="#offenders">What's In It</a>
+        <a href="#map">The Map</a>
+        <a href="#calculator">Take Action</a>
+        <a href="#about">Who We Are</a>
+        <a href="blog.html">Research</a>
+      </nav>
+      <div class="header-right">
+        <a href="#connect" class="btn btn-primary btn-sm" id="headerKitBtn">Order Free Test Kit</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
+          <span class="theme-icon light-icon">○</span>
+          <span class="theme-icon dark-icon">●</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════
+       HERO
+  ════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-fields" aria-hidden="true">
+      <div class="field f1"></div>
+      <div class="field f2"></div>
+      <div class="field f3"></div>
+      <div class="field f4"></div>
+      <div class="field f5"></div>
+      <div class="field f6"></div>
+      <div class="field f7"></div>
+      <div class="field f8"></div>
+      <div class="field f9"></div>
+      <div class="field f10"></div>
+      <div class="field f11"></div>
+      <div class="field f12"></div>
+      <div class="pond p1"></div>
+      <div class="pond p2"></div>
+      <div class="data-dot dot-safe dot-pos-1"></div>
+      <div class="data-dot dot-warn dot-pos-2"></div>
+      <div class="data-dot dot-danger dot-pos-3"></div>
+      <div class="data-dot dot-safe dot-pos-4"></div>
+      <div class="data-dot dot-warn dot-pos-5"></div>
+      <div class="data-dot dot-danger dot-pos-6"></div>
+      <div class="data-dot dot-safe dot-pos-7"></div>
+      <div class="data-dot dot-warn dot-pos-8"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow courier">Iowa Citizen Water Science · Est. 2024</div>
+      <h1 class="hero-headline">
+        For the kids who'll<br/><em>drink from the hose.</em>
+      </h1>
+      <p class="hero-sub">
+        We grew up outside — creeks, sprinklers, garden hoses, no second thoughts. 
+        Iowa now ranks #2 in the nation for cancer rates, and no one has fully explained why. 
+        We have a hypothesis. Clear Field is how we test it — one water sample at a time.
+      </p>
+      <div class="hero-actions">
+        <a href="#connect" class="btn btn-primary">Order a Free Test Kit</a>
+        <a href="#stats" class="btn btn-ghost">See What We're Asking ↓</a>
+      </div>
+      <div class="hero-legend">
+        <span class="legend-item"><span class="legend-dot dot-safe"></span><span class="courier">Safe</span></span>
+        <span class="legend-item"><span class="legend-dot dot-warn"></span><span class="courier">Elevated</span></span>
+        <span class="legend-item"><span class="legend-dot dot-danger"></span><span class="courier">High concern</span></span>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="courier">scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       STATS
+  ════════════════════════════════ -->
+  <section class="stats-section" id="stats">
+    <div class="stats-inner">
+      <div class="stats-intro reveal">
+        <span class="section-tag">The Question</span>
+        <h2 class="section-title">Iowa's cancer rates are rising.<br/><em>We want to know why.</em></h2>
+        <p class="section-desc">These are 2024 numbers. We're not saying we have the answer. We're saying the question deserves to be asked — and that Iowans deserve to be part of asking it.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-card-num">#2</div>
+          <div class="stat-card-label">Iowa's cancer incidence ranking in the U.S. — second highest in the entire country, and rates are still rising</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-card-num">491.8</div>
+          <div class="stat-card-label">new cancer cases per 100,000 Iowans — one of the highest rates ever recorded for this state</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-card-num">21,000</div>
+          <div class="stat-card-label">estimated new invasive cancer diagnoses in Iowa in 2024 alone — roughly 57 Iowans every single day</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-card-num">6,100</div>
+          <div class="stat-card-label">Iowans expected to die from cancer in 2024 — that's 17 deaths per day, in a state of 3.2 million people</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-card-num">#1</div>
+          <div class="stat-card-label">Iowa leads the entire nation in oropharyngeal (head and neck) cancer rates — a cancer strongly linked to environmental exposure</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-card-num">9th</div>
+          <div class="stat-card-label">highest breast cancer rate in the U.S. Iowa also ranks among the top states for prostate, lung, and colorectal cancers</div>
+          <div class="stat-card-source courier">Source: Iowa Cancer Consortium, 2024</div>
+        </div>
+        <div class="stat-card stat-card-wide reveal">
+          <div class="stat-card-num stat-card-num-terra">Sioux City. Pleasant Hill. Hawarden. Ankeny.</div>
+          <div class="stat-card-label">These Iowa zip codes are showing some of the highest localized cancer incidence rates in the state — clustered in regions with documented agricultural chemical runoff and aging water infrastructure. No one has proven the connection yet. That's what Clear Field is trying to find out.</div>
+          <div class="stat-card-source courier">Source: Des Moines Register / Iowa Cancer Consortium, Oct 2025</div>
+        </div>
+      </div>
+
+      <div class="stats-cta reveal">
+        <p>We don't know yet if Iowa's water is driving these cancer rates. That's exactly why we're asking. More data from more Iowans is how we start to find out.</p>
+        <a href="#connect" class="btn btn-primary">Order Your Free Kit</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       OFFENDERS — Contaminant Display
+  ════════════════════════════════ -->
+  <section class="offenders" id="offenders">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-tag">What's In It</span>
+        <h2 class="section-title">The usual suspects.<br/><em>Plain language, no jargon.</em></h2>
+        <p class="section-desc">These are the five contaminants we test for in every Clear Field kit. Click each one to learn where it comes from and what it does.</p>
+      </div>
+      <div class="contaminant-layout">
+        <nav class="contaminant-nav" aria-label="Select a contaminant">
+          <button class="c-btn active" data-c="atrazine">
+            <span class="c-btn-name">Atrazine</span>
+            <span class="c-btn-tag courier">Herbicide</span>
+          </button>
+          <button class="c-btn" data-c="nitrates">
+            <span class="c-btn-name">Nitrates</span>
+            <span class="c-btn-tag courier">Fertilizer Runoff</span>
+          </button>
+          <button class="c-btn" data-c="glyphosate">
+            <span class="c-btn-name">Glyphosate</span>
+            <span class="c-btn-tag courier">Herbicide</span>
+          </button>
+          <button class="c-btn" data-c="arsenic">
+            <span class="c-btn-name">Arsenic</span>
+            <span class="c-btn-tag courier">Natural / Industrial</span>
+          </button>
+          <button class="c-btn" data-c="lead">
+            <span class="c-btn-name">Lead</span>
+            <span class="c-btn-tag courier">Infrastructure</span>
+          </button>
+        </nav>
+        <div class="contaminant-display" id="contaminantDisplay" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       MAP — Leaflet Interactive
+  ════════════════════════════════ -->
+  <section class="map-section" id="map">
+    <div class="map-section-inner">
+      <div class="map-header reveal">
+        <div>
+          <span class="section-tag">The Map</span>
+          <h2 class="section-title">See what's in your water.<br/><em>County by county.</em></h2>
+        </div>
+        <div class="map-header-right courier">
+          <span class="map-count-num">247</span>
+          <span class="map-count-label">submissions &amp; counting</span>
+        </div>
+      </div>
+
+      <div class="map-toggles reveal">
+        <button class="map-toggle-btn active" id="toggleWater">Water Test Results</button>
+        <button class="map-toggle-btn" id="toggleCancer">Cancer Rates</button>
+      </div>
+
+      <div class="map-container reveal">
+        <div id="iowaMap"></div>
+      </div>
+
+      <div class="map-legend" id="mapLegend">
+        <div class="legend-group">
+          <span class="legend-group-label courier" id="legendLabel">Contamination Level</span>
+          <div>
+            <div class="gradient-bar water" id="gradientBar"></div>
+            <div class="gradient-labels" id="gradientLabels">
+              <span>Safe</span><span>Elevated</span><span>High</span>
+            </div>
+          </div>
+        </div>
+        <div class="pin-legend" id="pinLegend">
+          <span class="pin-legend-item"><span class="pin-legend-dot pld-safe"></span> Safe</span>
+          <span class="pin-legend-item"><span class="pin-legend-dot pld-warn"></span> Elevated</span>
+          <span class="pin-legend-item"><span class="pin-legend-dot pld-danger"></span> High</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       ENVELOPE KIT POPUP
+  ════════════════════════════════ -->
+  <div class="envelope-overlay hidden" id="envelopeOverlay" aria-modal="true" role="dialog" aria-label="Order a free water test kit">
+    <div class="envelope-wrap">
+      <div class="envelope-body">
+        <div class="envelope-flap" aria-hidden="true">
+          <div class="envelope-flap-inner"></div>
+        </div>
+        <div class="envelope-letter">
+          <div class="letter-header">
+            <div class="letter-monogram">CF</div>
+            <div class="letter-from courier">Clear Field · Iowa Water Watch</div>
+          </div>
+          <h3 class="letter-headline">Hey neighbor,</h3>
+          <p class="letter-body">Iowa ranks #2 in the nation for cancer. We have a hypothesis about why. Help us test it — fill in your address and we'll send you a free water testing kit, no strings attached.</p>
+          <form class="kit-form" id="kitForm" novalidate>
+            <div class="kit-form-row">
+              <div class="kit-form-group">
+                <label for="kitFirst" class="courier">First Name *</label>
+                <input type="text" id="kitFirst" placeholder="Dorothy" required />
+                <span class="form-error" id="kitFirstError" aria-live="polite"></span>
+              </div>
+              <div class="kit-form-group">
+                <label for="kitLast" class="courier">Last Name *</label>
+                <input type="text" id="kitLast" placeholder="Gale" required />
+                <span class="form-error" id="kitLastError" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="kit-form-group">
+              <label for="kitEmail" class="courier">Email Address *</label>
+              <input type="email" id="kitEmail" placeholder="you@home.com" required />
+              <span class="form-error" id="kitEmailError" aria-live="polite"></span>
+            </div>
+            <div class="kit-form-group">
+              <label for="kitAddress" class="courier">Mailing Address *</label>
+              <input type="text" id="kitAddress" placeholder="123 Gravel Road, Ames, IA 50010" required />
+              <span class="form-error" id="kitAddressError" aria-live="polite"></span>
+            </div>
+            <div class="kit-form-group">
+              <label for="kitCounty" class="courier">County *</label>
+              <input type="text" id="kitCounty" placeholder="e.g. Story County" required />
+              <span class="form-error" id="kitCountyError" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Me a Kit</button>
+          </form>
+          <div class="kit-success hidden" id="kitSuccess" aria-live="polite"></div>
+          <p class="letter-footer courier">Kits are free. Your address is used for shipping only and never shared.</p>
+        </div>
+      </div>
+      <button class="envelope-close" id="envelopeClose" aria-label="Close kit order form">✕ Close</button>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       CONNECTION CARD — Inline Kit Order
+  ════════════════════════════════ -->
+  <section class="connect-section" id="connect">
+    <div class="section-inner">
+      <div class="connect-card reveal">
+        <div class="connect-left">
+          <span class="section-tag">Join the Network</span>
+          <h2 class="section-title section-title-sm">Join your community.<br/><em>Order a free test kit.</em></h2>
+          <p class="connect-desc">Every kit we send out is another data point on the map. We'll mail one to your door — no cost, no catch. Just fill in the form and we'll get it shipped.</p>
+        </div>
+        <div class="connect-right">
+          <form class="connect-form" id="connectForm" novalidate>
+            <div class="form-group">
+              <label for="connectName" class="courier">Full Name <span class="req">*</span></label>
+              <input type="text" id="connectName" placeholder="Dorothy Gale" required />
+              <span class="form-error" id="connectNameError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="connectAddress" class="courier">Mailing Address <span class="req">*</span></label>
+              <input type="text" id="connectAddress" placeholder="123 Gravel Road, Ames, IA 50010" required />
+              <span class="form-error" id="connectAddressError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="connectCounty" class="courier">County <span class="req">*</span></label>
+              <input type="text" id="connectCounty" placeholder="e.g. Story County" required />
+              <span class="form-error" id="connectCountyError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="connectEmail" class="courier">Email <span class="req">*</span></label>
+              <input type="email" id="connectEmail" placeholder="you@home.com" required />
+              <span class="form-error" id="connectEmailError" aria-live="polite"></span>
+            </div>
+            <label class="checkbox-label">
+              <input type="checkbox" id="connectAccount" />
+              <span class="checkbox-custom"></span>
+              <span>Use this to create a Clear Field account</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-full">Order Test Kit</button>
+            <p class="form-note courier">Free shipping. Your info is never sold or shared.</p>
+          </form>
+          <div class="connect-success" id="connectSuccess" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       COST CALCULATOR
+  ════════════════════════════════ -->
+  <section class="calculator-section" id="calculator">
+    <div class="section-inner">
+      <div class="calc-header reveal">
+        <span class="section-tag">Take Action</span>
+        <h2 class="section-title">What it costs to protect<br/><em>your family's water.</em></h2>
+        <p class="section-desc">This is the price of safety in Iowa. A free test kit, a filter to remove what shouldn't be there, and a fund to hold the people who let it happen accountable.</p>
+      </div>
+
+      <div class="calc-grid reveal">
+        <!-- Product 1: Free Test Kit -->
+        <div class="calc-product" id="product-kit">
+          <div class="calc-product-img">
+            <div class="calc-product-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="8" width="24" height="32" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <line x1="18" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="18" y1="22" x2="30" y2="22" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="18" y1="28" x2="26" y2="28" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="34" cy="34" r="8" fill="#5C9E4A" stroke="white" stroke-width="2"/>
+                <path d="M30 34L33 37L38 31" stroke="white" stroke-width="1.5" fill="none"/>
+              </svg>
+            </div>
+            <span class="calc-product-badge courier">Free</span>
+          </div>
+          <div class="calc-product-info">
+            <h3 class="calc-product-name">Water Test Kit</h3>
+            <p class="calc-product-desc">Tests for nitrates, atrazine, glyphosate, arsenic, and lead. Results in 10–14 days. Covers one household water source.</p>
+            <div class="calc-product-price courier">$0.00</div>
+            <button class="btn btn-primary calc-add-btn" data-product="kit" data-price="0" data-name="Water Test Kit">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 2: Nitrate Filter -->
+        <div class="calc-product" id="product-filter">
+          <div class="calc-product-img">
+            <div class="calc-product-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 8H32V16L28 24V38C28 39.1 27.1 40 26 40H22C20.9 40 20 39.1 20 38V24L16 16V8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <line x1="14" y1="8" x2="34" y2="8" stroke="currentColor" stroke-width="2"/>
+                <line x1="20" y1="28" x2="28" y2="28" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                <line x1="20" y1="32" x2="28" y2="32" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="calc-product-info">
+            <h3 class="calc-product-name">Nitrate Filtration System</h3>
+            <p class="calc-product-desc">Reverse osmosis under-sink system rated to remove nitrates, lead, and atrazine. NSF/ANSI 58 certified. Protects up to 50 gallons per day.</p>
+            <div class="calc-product-price courier">$247.00</div>
+            <button class="btn btn-primary calc-add-btn" data-product="filter" data-price="247" data-name="Nitrate Filtration System">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 3: Accountability Fund -->
+        <div class="calc-product" id="product-fund">
+          <div class="calc-product-img">
+            <div class="calc-product-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6L6 16V18H42V16L24 6Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <rect x="10" y="18" width="4" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <rect x="22" y="18" width="4" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <rect x="34" y="18" width="4" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <rect x="6" y="34" width="36" height="4" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                <rect x="4" y="38" width="40" height="4" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+          </div>
+          <div class="calc-product-info">
+            <h3 class="calc-product-name">Accountability Fund</h3>
+            <p class="calc-product-desc">100% goes toward independent water testing, data transparency lobbying, and legislative advocacy. Every dollar holds someone accountable.</p>
+            <div class="calc-donation-input">
+              <span class="courier calc-donation-label">Choose amount</span>
+              <div class="donation-options">
+                <button class="donation-btn" data-amount="10">$10</button>
+                <button class="donation-btn" data-amount="25">$25</button>
+                <button class="donation-btn active" data-amount="50">$50</button>
+                <button class="donation-btn" data-amount="100">$100</button>
+              </div>
+            </div>
+            <button class="btn btn-primary calc-add-btn" data-product="fund" data-price="50" data-name="Accountability Fund Donation">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart / Total -->
+      <div class="calc-total-area reveal" id="calcTotal">
+        <div class="calc-cart" id="calcCart">
+          <div class="calc-cart-empty" id="cartEmpty">
+            <span class="courier calc-cart-empty-text">Your cart is empty — add an item above to get started.</span>
+          </div>
+          <div class="calc-cart-items" id="cartItems"></div>
+        </div>
+        <div class="calc-summary">
+          <div class="calc-summary-row">
+            <span>Subtotal</span>
+            <span class="courier" id="calcSubtotal">$0.00</span>
+          </div>
+          <div class="calc-summary-row">
+            <span>Tax (6% on products)</span>
+            <span class="courier" id="calcTax">$0.00</span>
+          </div>
+          <div class="calc-summary-row">
+            <span>Shipping</span>
+            <span class="courier" id="calcShipping">Free</span>
+          </div>
+          <div class="calc-summary-row calc-summary-total">
+            <span>Total</span>
+            <span class="courier" id="calcTotalPrice">$0.00</span>
+          </div>
+          <button class="btn btn-primary btn-full" id="calcCheckout">Check Out</button>
+        </div>
+        <div class="calc-checkout-msg" id="calcCheckoutMsg" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       WHO WE ARE
+  ════════════════════════════════ -->
+  <section class="about-section" id="about">
+    <div class="section-inner">
+      <div class="about-header reveal">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">Built by Iowans.<br/><em>For Iowans.</em></h2>
+        <p class="section-desc">Clear Field isn't a corporation. It's a citizen science network — built on three pillars.</p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="6" stroke="currentColor" stroke-width="2" fill="none"/><path d="M14 22C14 22 10 24 10 28V32H30V28C30 24 26 22 26 22" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="20" cy="12" r="2" fill="currentColor"/></svg>
+          </div>
+          <h3>Science</h3>
+          <p>Every kit follows the same lab-certified testing protocol. Our data is open, our methods are transparent, and our results are peer-reviewable. We're not trying to prove a point — we're trying to find the truth.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="16" r="5" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="26" cy="16" r="5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 30C8 26 10 24 14 24C16 24 18 25 20 26C22 25 24 24 26 24C30 24 32 26 32 30" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </div>
+          <h3>Community</h3>
+          <p>This map doesn't belong to us — it belongs to every family who's mailed in a sample. Over 240 Iowa households have tested their water. Their data is what makes Clear Field real.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="12" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 18H32" stroke="currentColor" stroke-width="2"/><path d="M16 8V12" stroke="currentColor" stroke-width="2"/><path d="M24 8V12" stroke="currentColor" stroke-width="2"/><path d="M14 24L18 28L26 20" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </div>
+          <h3>Accountability</h3>
+          <p>Data without action is just numbers. We publish every result. We share it with county health departments. And we fund efforts to hold legislators accountable for what's in Iowa's water.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SUBMIT RESULTS
+  ════════════════════════════════ -->
+  <section class="submit-section" id="submit">
+    <div class="section-inner">
+      <div class="submit-layout">
+        <div class="submit-left reveal">
+          <span class="section-tag">Submit Your Results</span>
+          <h2 class="section-title">Got your results?<br/><em>Put them on the map.</em></h2>
+          <p class="submit-desc">We're building an independent dataset to look for correlations between water contamination and cancer rates across Iowa. Your results aren't proof of anything — but they're data. And data is how hypotheses become answers.</p>
+          <div class="submit-steps">
+            <div class="step"><span class="step-num courier">01</span><span>Order or pick up a test kit — we'll send one free</span></div>
+            <div class="step"><span class="step-num courier">02</span><span>Collect your sample and mail it to our partner lab</span></div>
+            <div class="step"><span class="step-num courier">03</span><span>Results arrive in 10–14 days — submit them here</span></div>
+            <div class="step"><span class="step-num courier">04</span><span>Your county pin goes on the map within 48 hours</span></div>
+          </div>
+        </div>
+        <div class="submit-right">
+          <form class="submit-form" id="submitForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="courier">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Dorothy" required autocomplete="given-name" />
+                <span class="form-error" id="firstNameError" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="courier">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Gale" required autocomplete="family-name" />
+                <span class="form-error" id="lastNameError" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="courier">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@home.com" required autocomplete="email" />
+              <span class="form-error" id="emailError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="courier">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(515) 555-0100" autocomplete="tel" />
+              <span class="form-error" id="phoneError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label class="courier">Preferred Contact <span class="req">*</span></label>
+              <div class="radio-group" role="radiogroup">
+                <label class="radio-label"><input type="radio" name="contactMethod" value="email" /><span class="radio-custom"></span>Email</label>
+                <label class="radio-label"><input type="radio" name="contactMethod" value="phone" /><span class="radio-custom"></span>Phone</label>
+              </div>
+              <span class="form-error" id="contactMethodError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="county" class="courier">County <span class="req">*</span></label>
+              <input type="text" id="county" name="county" placeholder="e.g. Story County" required />
+              <span class="form-error" id="countyError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="farmName" class="courier">Farm or Family Name <span class="courier form-hint">(optional — shown on map)</span></label>
+              <input type="text" id="farmName" name="farmName" placeholder="e.g. Gale Family Farm" />
+            </div>
+            <div class="form-group">
+              <label for="comments" class="courier">Your Results &amp; Notes <span class="req">*</span></label>
+              <textarea id="comments" name="comments" rows="5" placeholder="Share your test results — contaminant type, concentration level, testing method, anything relevant..." required></textarea>
+              <span class="form-error" id="commentsError" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Add My Results to the Map</button>
+            <p class="form-note courier">Your data is anonymized before going public. We will never sell your information.</p>
+          </form>
+          <div class="form-success" id="formSuccess" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       FOOTER
+  ════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#top" class="logo">
+            <span class="logo-mark">CF</span>
+            <span class="logo-text">Clear Field</span>
+          </a>
+          <p>A grassroots citizen water science network. Independently funded. Open data. We're not claiming to have the answers — we're building the dataset that might find them.</p>
+          <p class="footer-funding courier">Funded by community donations &amp; the Iowa Environmental Health Fund.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h3 class="courier footer-heading">Platform</h3>
+            <a href="#stats">The Problem</a>
+            <a href="#offenders">What's In It</a>
+            <a href="#map">The Map</a>
+            <a href="#calculator">Take Action</a>
+          </div>
+          <div class="footer-col">
+            <h3 class="courier footer-heading">Resources</h3>
+            <a href="blog.html">Research &amp; Blog</a>
+            <a href="#">County Extension Labs</a>
+            <a href="#">EPA Standards</a>
+            <a href="#">Testing Guide</a>
+          </div>
+          <div class="footer-col">
+            <h3 class="courier footer-heading">Community</h3>
+            <a href="#about">Who We Are</a>
+            <a href="#">Our Partners</a>
+            <a href="#">Press</a>
+            <a href="#submit">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="courier">© 2026 Clear Field Iowa · Open data · Freely accessible</span>
+        <span class="courier">Designed &amp; built by Harbor Neill</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
